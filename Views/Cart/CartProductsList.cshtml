@@ -1,0 +1,51 @@
+﻿@model ShoppingCart
+
+<h2>Shopping Cart</h2>
+
+@if (Model.Products.Any())
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th>Cena</th>
+            <th>Ilość</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>@product.ProductName</td>
+                <td>@product.TotalPrice</td>
+                <td>@product.Quantity</td>
+                <td>
+                    <form asp-controller="Cart" asp-action="RemoveFromCart" method="post">
+                        <input type="hidden" name="productId" value="@product.ProductId" />
+                            <button type="submit" class="btn btn-sm btn-danger">Usuń</button>
+                    </form>
+                    <form asp-controller="Home" asp-action="AddToCart" method="post">
+                        <input type="hidden" name="productId" value="@product.ProductId" />
+                        <button type="submit" class="btn btn-sm btn-primary">Dodaj kolejny</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        <tr>
+            <td colspan="4"><strong>Suma</strong></td>
+            <td><strong>@Model.CartPrice.ToString("c")</strong></td>
+        </tr>
+        </tbody>
+    </table>
+    <form asp-controller="Cart" asp-action="Buy" method="post">
+        <button type="submit" class="btn btn-sm btn-success">Zamów</button>
+    </form>
+
+    <form asp-controller="Cart" asp-action="ClearCart" method="post">
+        <button type="submit" class="btn btn-sm btn-danger">Wyczyść koszyk</button>
+    </form>
+}
+else
+{
+    <p>Twój koszyk jest pusty.</p>
+}

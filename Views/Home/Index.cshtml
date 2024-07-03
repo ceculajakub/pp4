@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Product>
+
+<div class="row">
+    @foreach (var product in Model)
+    {
+        <div class="col-lg-4 col-md-6 mb-4 catalog-item">
+            <div class="card">
+                <img class="card-img-top" src="https://media.istockphoto.com/id/1283813790/pl/zdj%C4%99cie/zarz%C4%85dzanie-inwestycjami-dywersyfikacja-portfela.jpg?s=2048x2048&amp;w=is&amp;k=20&amp;c=ThKwGwAyM7s_Yt5n0lAP9PJVmydG3ePVOe-5uzmQ7gI=" alt="Product Image">
+                <div class="card-body">
+                    <h5 class="card-title">@product.ProductName</h5>
+                    <p class="card-text">@product.ProductDescription</p>
+                    <form asp-controller="Home" asp-action="AddToCart" method="post">
+                        <input type="hidden" name="productId" value="@product.ProductId" />
+                        <button type="submit" class="btn btn-primary">Dodaj do koszyka</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+</div>
