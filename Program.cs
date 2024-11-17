@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<EcommerceContext>(options =>
-    options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=FFF;Trusted_Connection=True;"));
+    options.UseSqlite("Data Source=ecommerce.db"));
 
 builder.Services.AddTransient<IProductCatalog, ProductCatalog>();
 builder.Services.AddTransient<IProductService, ProductService>();

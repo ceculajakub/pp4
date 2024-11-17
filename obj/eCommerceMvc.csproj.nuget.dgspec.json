@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projekty\\uczelnia\\pp4\\eCommerce\\eCommerceMvc\\eCommerceMvc.csproj": {}
+    "D:\\pp4\\pp4\\eCommerceMvc.csproj": {}
   },
   "projects": {
-    "C:\\Projekty\\uczelnia\\pp4\\eCommerce\\eCommerceMvc\\eCommerceMvc.csproj": {
+    "D:\\pp4\\pp4\\eCommerceMvc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projekty\\uczelnia\\pp4\\eCommerce\\eCommerceMvc\\eCommerceMvc.csproj",
+        "projectUniqueName": "D:\\pp4\\pp4\\eCommerceMvc.csproj",
         "projectName": "eCommerceMvc",
-        "projectPath": "C:\\Projekty\\uczelnia\\pp4\\eCommerce\\eCommerceMvc\\eCommerceMvc.csproj",
-        "packagesPath": "C:\\Users\\jacu\\.nuget\\packages\\",
-        "outputPath": "C:\\Projekty\\uczelnia\\pp4\\eCommerce\\eCommerceMvc\\obj\\",
+        "projectPath": "D:\\pp4\\pp4\\eCommerceMvc.csproj",
+        "packagesPath": "C:\\Users\\s-A007-17\\.nuget\\packages\\",
+        "outputPath": "D:\\pp4\\pp4\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jacu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\s-A007-17\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -67,6 +67,10 @@
               "target": "Package",
               "version": "[8.0.5, )"
             },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.5, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[8.0.2, )"
@@ -95,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

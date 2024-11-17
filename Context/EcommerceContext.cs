@@ -21,7 +21,16 @@ public class EcommerceContext : DbContext
 
         base.OnModelCreating(modelBuilder);
     }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseSqlite("Data Source=ecommerce.db");
+        }
+    }
 }
+
 
 public static class DbInitializer
 {
@@ -31,7 +40,7 @@ public static class DbInitializer
 
         if (context.Products.Any())
         {
-            return;
+            return; 
         }
 
         var products = new Product[]
@@ -45,12 +54,12 @@ public static class DbInitializer
             new Product("Szybka Droga do Bogactwa: Inwestycje w NFT dla Dzieci",
                 "Szukasz szybkiego i łatwego sposobu na zbicie fortuny dla swojego dziecka? W takim razie ten e-book jest dla Ciebie! Odkryj fascynujący świat NFT i poznaj sprawdzone strategie inwestowania, które pomogą Twojemu dziecku błyskawicznie pomnożyć swoje kieszonkowe. Naucz się, jak znajdować unikalne i wartościowe NFT, budować sieć kolekcjonerów i czerpać zyski z ich naiwności.")
             {
-                Price = 29.99M,
+                Price = 29.99m,
                 ProviderName = "Fabryka Sukcesu"
             },
             new Product("Inwestycje w Złote Myśli: Jak Zostać Milionerem Pisząc Motywacyjne Cytaty", "")
             {
-                Price = 59.99M,
+                Price = 59.99m,
                 ProviderName = "Filantropia"
             }
         };
