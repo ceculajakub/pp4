@@ -1,5 +1,6 @@
 using eCommerceMvc.Models;
 using eCommerceMvc.Services;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,12 @@ builder.Services.AddHttpClient<PayU>();
 builder.Services.AddMemoryCache();
 builder.Services.AddSession();
 var app = builder.Build();
+
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
+
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
