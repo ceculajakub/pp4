@@ -14,7 +14,8 @@ builder.Services.AddTransient<IProductService, ProductService>();
 builder.Services.AddTransient<IPayUMapper, PayUMapper>();
 builder.Services.AddScoped<IProductStorage, ProductRepository>();
 builder.Services.AddHttpClient<PayU>();
-builder.WebHost.UseUrls("http://0.0.0.0:5000");
+builder.Configuration.AddCommandLine(args);
+//builder.WebHost.UseUrls("http://0.0.0.0:5000");
 
 builder.Services.AddMemoryCache();
 builder.Services.AddSession();
