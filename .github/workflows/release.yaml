@@ -15,12 +15,16 @@ jobs:
               with:
                 dotnet-version: '8.x'
             - name: "Create package"
-              run: dotnet publish
-            - run: ls -la bin/Release/net8.0/publish/
-            - run: mv bin/Release/net8.0/*.dll bin/Release/net8.0/ecommerce.dll
+              run: dotnet publish -c Release -o bin/Release/net8.0/publish
+        
+            - name: Verify files
+              run: ls -la bin/Release/net8.0/publish/
+        
+            - name: Rename file
+              run: mv bin/Release/net8.0/publish/*.dll bin/Release/net8.0/publish/ecommerce.dll 
             - uses: ncipollo/release-action@v1
               with:
                 name: "My release ${{github.ref}}"
-                artifacts: "bin/Release/net8.0/ecommerce.dll"
+                artifacts: "bin/Release/net8.0/publish/ecommerce.dll"
                 body: |
-                 # My new release done with GH Action
+                  # My new release done with GH Action
