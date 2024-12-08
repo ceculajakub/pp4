@@ -5,7 +5,12 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-
+  <PropertyGroup>
+		<RuntimeIdentifier>linux-x64</RuntimeIdentifier>
+		<PublishSingleFile>true</PublishSingleFile>
+		<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+		<SelfContained>true</SelfContained>
+	</PropertyGroup>
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.0" />
