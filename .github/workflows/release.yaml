@@ -21,6 +21,6 @@ jobs:
             - uses: ncipollo/release-action@v1
               with:
                 name: "My release ${{github.ref}}"
-                artifacts: "bin/Release/net8.0/publish/ecommerce"
+                artifacts: "bin/Release/net8.0/publish/eCommerceMvc"
                 body: |
                   # My new release done with GH Action
