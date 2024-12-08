@@ -1,0 +1,18 @@
+name: "Release my package"
+on: 
+    push:
+        tags:
+            - '*.*.*-rc'
+jobs: 
+    ReleaseEcommerce:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Setup dotnet '8.x'
+              uses: actions/setup-dotnet@v3
+              with:
+                dotnet-version: '8.x'
+            - name: "Create package"
+              run: dotnet publish -o target
+            - run: ls -la target/
+
