@@ -13,6 +13,6 @@ jobs:
               with:
                 dotnet-version: '8.x'
             - name: "Create package"
-              run: dotnet publish -o target
-            - run: ls -la target/
+              run: dotnet publish
+            - run: ls -la bin/Release/net8.0/
 
