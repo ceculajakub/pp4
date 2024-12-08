@@ -16,7 +16,7 @@ jobs:
                 dotnet-version: '8.x'
             - name: "Create package"
               run: dotnet publish
-            - run: ls -la bin/Release/net8.0/
+            - run: ls -la bin/Release/net8.0/publish/
             - run: mv bin/Release/net8.0/*.dll bin/Release/net8.0/ecommerce.dll
             - uses: ncipollo/release-action@v1
               with:
