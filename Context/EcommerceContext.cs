@@ -26,7 +26,8 @@ public class EcommerceContext : DbContext
     {
         if (!optionsBuilder.IsConfigured)
         {
-            optionsBuilder.UseSqlite("Data Source=ecommerce.db");
+            optionsBuilder.UseSqlite("Data Source=/opt/ecommerce/ecommerce.db");
+
         }
     }
 }
