@@ -6,6 +6,8 @@ on:
 jobs: 
     ReleaseEcommerce:
         runs-on: ubuntu-latest
+        permissions:
+            contents: write
         steps:
             - uses: actions/checkout@v4
             - name: Setup dotnet '8.x'
@@ -15,4 +17,10 @@ jobs:
             - name: "Create package"
               run: dotnet publish
             - run: ls -la bin/Release/net8.0/
-
+            - run: mv bin/Release/net8.0/*.dll bin/Release/net8.0/ecommerce.dll
+            - uses: ncipollo/release-action@v1
+              with:
+                name: "My release ${{github.ref}}"
+                artifacts: "bin/Release/net8.0/ecommerce.dll"
+                body: |
+                 # My new release done with GH Action
