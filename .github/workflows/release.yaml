@@ -14,17 +14,13 @@ jobs:
               uses: actions/setup-dotnet@v3
               with:
                 dotnet-version: '8.x'
-            - name: "Create package"
-              run: dotnet publish -c Release -o bin/Release/net8.0/publish
-        
-            - name: Verify files
+            - name: "Create single-file package"
+              run: dotnet publish -c Release -o bin/Release/net8.0/publish -p:PublishSingleFile=true --self-contained=false
+            - name: Verify single file
               run: ls -la bin/Release/net8.0/publish/
-        
-            - name: Rename file
-              run: mv bin/Release/net8.0/publish/*.dll bin/Release/net8.0/publish/ecommerce.dll 
             - uses: ncipollo/release-action@v1
               with:
                 name: "My release ${{github.ref}}"
-                artifacts: "bin/Release/net8.0/publish/ecommerce.dll"
+                artifacts: "bin/Release/net8.0/publish/ecommerce"
                 body: |
                   # My new release done with GH Action
